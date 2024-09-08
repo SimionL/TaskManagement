@@ -1,0 +1,75 @@
+<div class="center">
+  <h1>Tasks list</h1>
+</div>
+
+<div class="center">
+  @if(isEditAvailable === true){
+  <button style="cursor:pointer" (click)="delete()">Delete</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <button style="cursor:pointer" (click)="goToEdit()">Edit</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  }
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button style="cursor:pointer" (click)="goToCreate()">Crete new task</button>
+</div>
+<br><br>
+
+<!-- <table>
+  <tr>
+    <td>
+      @for (task of tasks; track task.title) {
+      <li class="hand" (click)="setSelectedTask(task)" style="color:{{getColor(task)}}">{{task.title}}</li>
+      } @empty {
+      Empty list of tasks
+      }
+    </td>
+    <td>
+      @if(selectedTask && isEditAvailable === true){
+      <div class="detailsColumn">
+        {{selectedTask.description}} <br>
+        {{selectedTask.status}}
+      </div>
+      }
+    </td>
+  </tr>
+</table> -->
+
+<br><br>
+
+<input matInput class="filterClass" (keyup)="applyFilter($event)" autofocus placeholder="SEARCH HERE" #input>
+<br>
+<table mat-table [dataSource]="tableDataSource" class="mat-elevation-z8" matSort>
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef (click)="setOrder('Id')" class="hand"> Id </th>
+    <td mat-cell class="hand" *matCellDef="let element" (click)="setSelectedTask(element)"
+      style="background-color: {{getColor(element)}}"> {{element.id}} </td>
+  </ng-container>
+
+
+  
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef (click)="setOrder('Title')" class="hand"> Title </th>
+    <td mat-cell class="hand" *matCellDef="let element" (click)="setSelectedTask(element)"
+      style="background-color: {{getColor(element)}}"> {{element.title}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef (click)="setOrder('Description')" class="hand"> Description </th>
+    <td mat-cell class="hand" *matCellDef="let element" (click)="setSelectedTask(element)"
+      style="background-color: {{getColor(element)}}"> {{element.description}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef (click)="setOrder('Status')" class="hand"> Status </th>
+    <td mat-cell class="hand" *matCellDef="let element" (click)="setSelectedTask(element)"
+      style="background-color: {{getColor(element)}}"> {{element.status}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>

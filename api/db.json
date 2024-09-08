@@ -1,0 +1,34 @@
+[
+    [
+        {
+            "id": 1,
+            "title": "post a job ad",
+            "description": "publish a job ad with a job description",
+            "status": "Done"
+        },
+        {
+            "id": 2,
+            "title": "select eligible candidates",
+            "description": "select only suitable candidates who match job description",
+            "status": "In Progress"
+        },
+        {
+            "id": 3,
+            "title": "load candidates list",
+            "description": "all candidates cv must be send on email to manager",
+            "status": "To Do"
+        },
+        {
+            "id": 4,
+            "title": "choose the candidate",
+            "description": "choose the proper candidates for the role",
+            "status": "To Do"
+        },
+        {
+            "id": 5,
+            "title": "start working",
+            "description": "the candidate begin to work",
+            "status": "To Do"
+        }
+    ]
+]

@@ -1,0 +1,39 @@
+<div class="center">
+    <h1>Create</h1>
+</div>
+
+<div class="center">
+    <button style="cursor:pointer" (click)="goToTasks()">Tasks</button>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="save(form.value)">
+
+    <table>
+        <tr>
+            <td><label>Title</label></td>
+            <td><input type="text" formControlName="title"></td>
+        </tr>
+
+        <tr>
+            <td><label>Description</label></td>
+            <td>
+                <textarea class="descriptionField" type="text" formControlName="description"></textarea>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td><label>Status</label></td>
+            <td><input type="text" formControlName="status"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <br>
+                <input type="submit" style="cursor:pointer" value="save" [disabled]="!form.valid"> &nbsp; &nbsp; &nbsp;
+                <input type="button" style="cursor:pointer" value="clear" (click)="form.reset()">
+            </td>
+        </tr>
+    </table>
+</form>
